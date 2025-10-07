@@ -1,0 +1,21 @@
+project documentation
+
+1. Created sample directory structure
+mkdir -p ~/project_data/{docs,images,config}
+echo "Important project document" > ~/project_data/docs/document1.txt
+echo "Server configuration" > ~/project_data/config/server.conf
+echo "Sample image data" > ~/project_data/images/picture1.img
+
+2. backup created 
+tar -czvf project_backup_full.tar.gz ~/project_data/
+
+3.command errored 
+find ~/project_data/ -name "*.txt"
+-exec tar -rvf text_files.tar {} \;
+zsh: command not found: -exec
+
+error occured because the command was split incorrectly across lines, and your shell (zsh on macOS) tried to execute -exec as if it were a new command.
+
+correct command
+find ~/project_data/ -name "*.txt" -exec tar -rvf text_files.tar {} \;
+

@@ -1,0 +1,45 @@
+project documentation
+
+1. Created sample directory structure
+mkdir -p ~/project_data/{docs,images,config}
+echo "Important project document" > ~/project_data/docs/document1.txt
+echo "Server configuration" > ~/project_data/config/server.conf
+echo "Sample image data" > ~/project_data/images/picture1.img
+
+2. backup created 
+tar -czvf project_backup_full.tar.gz ~/project_data/
+
+3.command errored 
+find ~/project_data/ -name "*.txt"
+-exec tar -rvf text_files.tar {} \;
+zsh: command not found: -exec
+
+error occured because the command was split incorrectly across lines, and your shell (zsh on macOS) tried to execute -exec as if it were a new command.
+
+correct command
+find ~/project_data/ -name "*.txt" -exec tar -rvf text_files.tar {} \;
+
+4. # Create incremental backup with rsync
+mkdir ~/backup_location
+rsync -av ~/project_data/ ~/backup_location/
+
+out:
+Transfer starting: 10 files
+./
+.DS_Store
+project_backup_full.tar.gz
+project_document.txt
+config/
+config/server.conf
+docs/
+docs/document1.txt
+images/
+images/picture1.img
+
+sent 8676 bytes  received 176 bytes  2855483 bytes/sec
+total size is 7947  speedup is 0.90
+
+5. # Simulate data loss and restore
+rm -rf ~/project_data/docs/
+tar -xzvf project_backup_full.tar.gz -C ~/
+

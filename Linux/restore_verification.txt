@@ -1,0 +1,8 @@
+total 32
+drwxr-xr-x   7 ajayrajk  staff   224  7 Oct 21:02 .
+drwxr-x---+ 30 ajayrajk  staff   960  7 Oct 21:03 ..
+-rw-r--r--@  1 ajayrajk  staff  6148  7 Oct 20:40 .DS_Store
+drwxr-xr-x   3 ajayrajk  staff    96  7 Oct 20:27 config
+drwxr-xr-x   3 ajayrajk  staff    96  7 Oct 20:27 images
+-rw-r--r--@  1 ajayrajk  staff   995  7 Oct 20:34 project_backup_full.tar.gz
+-rw-r--r--@  1 ajayrajk  staff  1225  7 Oct 21:02 project_document.txt
